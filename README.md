@@ -4,4 +4,10 @@
 
 ## 设计
 
-参考cadence的设计，分为worker, workflow, activity这3个部分。activity定义了每一步执行的逻辑，每个activity运行在各自的thread中，这样activity运行互不干扰，通过mpsc channel来通信，workflow调度各个activity如何执行，workflow, activity运行在worker中
+参考[bpe](https://github.com/synrc/bpe)的实现
+
+一些结构：
+
+1. 流程定义 process_definition
+2. 流程实例 process_instance
+3. 任务 task，任务包含多种类型
