@@ -4,7 +4,7 @@
 
 ## 设计
 
-参考[bpe](https://github.com/synrc/bpe)的实现
+参考 [bpe](https://github.com/synrc/bpe) 的实现
 
 一些结构：
 
@@ -23,8 +23,9 @@ cargo run --example demo
 
 ## TODO
 
-- [ ] sequence flow 支持 linked list 顺序结构
-- [ ] sequence flow 支持更复杂的数据结构
+- [ ] 每个 task 运行之后返回一个状态，只有状态为以完成才能进入执行下一个状态
+- [ ] 每个 task 可接受输入状态
+- [ ] seq 的实现要支持分支
 - [ ] process instance 中可以保存变量
 - [ ] process instance 状态可以持久化到数据库
-- [ ] 流程跑在服务端，客户端通过rest api来和服务端交互
+- [ ] 流程跑在服务端，客户端通过 rest api 来和服务端交互
