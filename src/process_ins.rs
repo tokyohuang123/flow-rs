@@ -1,4 +1,5 @@
 use crate::process_def::ProcessDef;
+use crate::task::TaskKind;
 use uuid::Uuid;
 
 pub struct ProcessIns<'a> {
@@ -15,10 +16,17 @@ impl<'a> ProcessIns<'a> {
     }
 
     pub fn run(&self) {
-        let tasks = self.process_def.seq.iter();
+        let mut seqs = self.process_def.seq.iter();
         println!("正在运行流程: id={}", self.id);
-        for task in tasks {
-            task.run();
+        let init_seq = seqs.next().unwrap();
+        let mut curr_task = init_seq.target;
+        loop {
+            curr_task.run();
+            let next_task = self.process_def.find_next(curr_task);
+            curr_task = next_task;
+            if curr_task.kind == TaskKind::EndEvent {
+                break;
+            }
         }
         println!("流程: id={} 结束", self.id);
     }
