@@ -1,3 +1,5 @@
+use uuid::Uuid;
+
 type Callback = fn();
 
 pub struct Task {
@@ -9,7 +11,7 @@ pub struct Task {
 impl Task {
     pub fn new(name: String, cb: Callback) -> Self {
         return Task {
-            id: "task_id_1".to_string(),
+            id: Uuid::new_v4().to_string(),
             name: name,
             runner: cb,
         };

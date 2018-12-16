@@ -27,3 +27,4 @@ cargo run --example demo
 - [ ] sequence flow 支持更复杂的数据结构
 - [ ] process instance 中可以保存变量
 - [ ] process instance 状态可以持久化到数据库
+- [ ] 流程跑在服务端，客户端通过rest api来和服务端交互
