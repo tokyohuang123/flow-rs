@@ -1,12 +1,12 @@
 use crate::process_def::ProcessDef;
 
-pub struct ProcessIns<'a> {
+pub struct ProcessIns {
     pub id: String,
-    pub process_def: &'a ProcessDef<'a>,
+    pub process_def: ProcessDef,
 }
 
-impl<'a> ProcessIns<'a> {
-    pub fn new(def: &'a ProcessDef<'a>) -> Self {
+impl ProcessIns {
+    pub fn new(def: ProcessDef) -> Self {
         return ProcessIns {
             id: "process instalce id".to_string(),
             process_def: def,
@@ -14,7 +14,7 @@ impl<'a> ProcessIns<'a> {
     }
 
     pub fn run(&self) {
-        let tasks = self.process_def.seq.iter();
+        let tasks = self.process_def.tasks.iter();
         println!("正在运行流程{}", self.id);
         for task in tasks {
             task.run();
