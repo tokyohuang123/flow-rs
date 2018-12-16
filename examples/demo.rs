@@ -5,21 +5,21 @@ use flow_rs::process_ins::ProcessIns;
 use flow_rs::task::Task;
 
 fn main() {
+    let task1 = create_task1();
+    let task2 = create_task2();
+    let task3 = create_task3();
     let mut proc_def = ProcessDef::new(
         "简单的测试流程".to_string(),
         "process_definition_1".to_string(),
     );
-    let task1 = create_task1();
-    let task2 = create_task2();
-    let task3 = create_task3();
 
-    proc_def.add_task(task1);
-    proc_def.add_task(task2);
-    proc_def.add_task(task3);
+    proc_def.add_task(&task1);
+    proc_def.add_task(&task2);
+    proc_def.add_task(&task3);
 
-    // proc_def.link_task(&task1);
-    // proc_def.link_task(&task2);
-    // proc_def.link_task(&task3);
+    proc_def.link_task(&task2);
+    proc_def.link_task(&task1);
+    proc_def.link_task(&task3);
 
     let proc_ins = ProcessIns::new(proc_def);
     proc_ins.run();
