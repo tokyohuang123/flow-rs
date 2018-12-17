@@ -1,5 +1,6 @@
 extern crate flow_rs;
 
+use flow_rs::form::Form;
 use flow_rs::process_def::{ProcessDef, Seq};
 use flow_rs::process_ins::ProcessIns;
 use flow_rs::task::{Task, TaskKind};
@@ -33,20 +34,41 @@ fn main() {
 fn create_task1() -> Task {
     return Task::new("任务1".to_string(), TaskKind::UserTask, Some(run_task1));
 }
-fn run_task1() {
-    println!("正在运行任务1");
+fn run_task1(input: Option<Form>) {
+    match input {
+        Some(sf) => {
+            println!("正在运行任务1, form_name={}", sf.name);
+        }
+        _ => {
+            println!("正在运行任务1, 无输入");
+        }
+    }
 }
 
 fn create_task2() -> Task {
     return Task::new("任务2".to_string(), TaskKind::UserTask, Some(run_task2));
 }
-fn run_task2() {
-    println!("正在运行任务2");
+fn run_task2(input: Option<Form>) {
+    match input {
+        Some(sf) => {
+            println!("正在运行任务2, form_name={}", sf.name);
+        }
+        _ => {
+            println!("正在运行任务1, 无输入");
+        }
+    }
 }
 
 fn create_task3() -> Task {
     return Task::new("任务3".to_string(), TaskKind::UserTask, Some(run_task3));
 }
-fn run_task3() {
-    println!("正在运行任务3");
+fn run_task3(input: Option<Form>) {
+    match input {
+        Some(sf) => {
+            println!("正在运行任务3, form_name={}", sf.name);
+        }
+        _ => {
+            println!("正在运行任务1, 无输入");
+        }
+    }
 }

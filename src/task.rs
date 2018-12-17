@@ -1,6 +1,7 @@
+use crate::form::Form;
 use uuid::Uuid;
 
-type Callback = fn();
+type Callback = fn(Option<Form>);
 
 #[derive(PartialEq)]
 pub enum TaskKind {
@@ -28,10 +29,10 @@ impl Task {
         };
     }
 
-    pub fn run(&self) {
+    pub fn run(&self, input: Option<Form>) {
         match self.runner {
             Some(f) => {
-                f();
+                f(input);
             }
             _ => {}
         };
