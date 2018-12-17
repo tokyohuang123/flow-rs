@@ -1,16 +1,16 @@
 // 流程定义模块
 use crate::task::Task;
 
-pub struct ProcessDef<'a> {
+pub struct ProcDef<'a> {
     pub name: String,         // 流程定义名
     pub key: String,          // 流程定义key，必须全局唯一
     pub tasks: Vec<&'a Task>, // 流程内的任务列表
     pub seq: Vec<Seq<'a>>,
 }
 
-impl<'a> ProcessDef<'a> {
+impl<'a> ProcDef<'a> {
     pub fn new(name: String, key: String) -> Self {
-        return ProcessDef {
+        return ProcDef {
             name: name,
             key: key,
             tasks: Vec::new(),

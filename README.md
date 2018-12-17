@@ -8,8 +8,8 @@
 
 一些结构：
 
-1. 流程定义 process_definition
-2. 流程实例 process_instance
+1. 流程定义 proc_definition
+2. 流程实例 proc_instance
 3. 任务 task，任务包含多种类型
 
 ## 测试

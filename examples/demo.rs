@@ -1,8 +1,8 @@
 extern crate flow_rs;
 
 use flow_rs::form::Form;
-use flow_rs::process_def::{ProcessDef, Seq};
-use flow_rs::process_ins::ProcessIns;
+use flow_rs::proc_def::{ProcDef, Seq};
+use flow_rs::proc_ins::ProcIns;
 use flow_rs::task::{Task, TaskKind};
 
 fn main() {
@@ -11,9 +11,9 @@ fn main() {
     let task3 = create_task3();
     let begin_task = Task::new("init".to_string(), TaskKind::BeginEvent, None);
     let end_task = Task::new("final".to_string(), TaskKind::EndEvent, None);
-    let mut proc_def = ProcessDef::new(
+    let mut proc_def = ProcDef::new(
         "简单的测试流程".to_string(),
-        "process_definition_1".to_string(),
+        "proc_definition_1".to_string(),
     );
 
     proc_def.add_task(&task1);
@@ -27,7 +27,7 @@ fn main() {
         Seq::new(&task3, &end_task),
     ]);
 
-    let proc_ins = ProcessIns::new(proc_def);
+    let proc_ins = ProcIns::new(proc_def);
     proc_ins.run();
 }
 
