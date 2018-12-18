@@ -4,7 +4,6 @@ use crate::task::Task;
 pub struct ProcDef<'a> {
     pub name: String,         // 流程定义名
     pub key: String,          // 流程定义key，必须全局唯一
-    pub tasks: Vec<&'a Task>, // 流程内的任务列表
     pub seq: Vec<Seq<'a>>,
 }
 
@@ -13,13 +12,8 @@ impl<'a> ProcDef<'a> {
         return ProcDef {
             name: name,
             key: key,
-            tasks: Vec::new(),
             seq: Vec::new(),
         };
-    }
-
-    pub fn add_task(&mut self, task: &'a Task) {
-        self.tasks.push(task);
     }
 
     pub fn set_seq(&mut self, seq: Vec<Seq<'a>>) {
