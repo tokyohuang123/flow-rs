@@ -18,6 +18,7 @@
 
 ```sh
 cargo build
+cargo clippy
 cargo run --example demo
 ```
 

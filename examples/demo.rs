@@ -28,7 +28,12 @@ fn main() {
 }
 
 fn create_task1() -> Task {
-    return Task::new("任务1".to_string(), TaskKind::UserTask, Some(run_task1), None);
+    return Task::new(
+        "任务1".to_string(),
+        TaskKind::UserTask,
+        Some(run_task1),
+        None,
+    );
 }
 fn run_task1(input: Option<Form>) {
     match input {
@@ -42,7 +47,12 @@ fn run_task1(input: Option<Form>) {
 }
 
 fn create_task2() -> Task {
-    return Task::new("任务2".to_string(), TaskKind::UserTask, Some(run_task2), None);
+    return Task::new(
+        "任务2".to_string(),
+        TaskKind::UserTask,
+        Some(run_task2),
+        None,
+    );
 }
 fn run_task2(input: Option<Form>) {
     match input {
@@ -56,7 +66,12 @@ fn run_task2(input: Option<Form>) {
 }
 
 fn create_task3() -> Task {
-    return Task::new("任务3".to_string(), TaskKind::UserTask, Some(run_task3), None);
+    return Task::new(
+        "任务3".to_string(),
+        TaskKind::UserTask,
+        Some(run_task3),
+        None,
+    );
 }
 fn run_task3(input: Option<Form>) {
     match input {

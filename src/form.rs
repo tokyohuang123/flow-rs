@@ -25,11 +25,11 @@ pub enum FormFieldKind {
 
 impl Form {
     pub fn new(name: String, key: String, fields: Vec<FormField>) -> Self {
-        return Form {
-            name: name,
-            key: key,
+        Form {
+            name,
+            key,
             id: Uuid::new_v4().to_string(),
-            fields: fields,
-        };
+            fields,
+        }
     }
 }

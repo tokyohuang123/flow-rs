@@ -29,22 +29,19 @@ pub struct Task {
 
 impl Task {
     pub fn new(name: String, kind: TaskKind, cb: Option<Callback>, form: Option<Form>) -> Self {
-        return Task {
+        Task {
             id: Uuid::new_v4().to_string(),
-            name: name,
-            kind: kind,
+            name,
+            kind,
             runner: cb,
-            form: form,
+            form,
             state: TaskState::NOTRULL,
-        };
+        }
     }
 
     pub fn run(&self, input: Option<Form>) {
-        match self.runner {
-            Some(f) => {
-                f(input); // TODO: 在这里做策略，判断执行结果，为下一步做准备
-            }
-            _ => {}
-        };
+        if let Some(f) = self.runner {
+            f(input);
+        }
     }
 }

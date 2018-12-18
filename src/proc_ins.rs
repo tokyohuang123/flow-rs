@@ -10,10 +10,10 @@ pub struct ProcIns<'a> {
 
 impl<'a> ProcIns<'a> {
     pub fn new(def: ProcDef<'a>) -> Self {
-        return ProcIns {
+        ProcIns {
             id: Uuid::new_v4().to_string(),
             proc_def: def,
-        };
+        }
     }
 
     pub fn run(&self) {

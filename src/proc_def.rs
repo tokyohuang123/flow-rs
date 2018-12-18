@@ -2,18 +2,18 @@
 use crate::task::Task;
 
 pub struct ProcDef<'a> {
-    pub name: String,         // 流程定义名
-    pub key: String,          // 流程定义key，必须全局唯一
+    pub name: String, // 流程定义名
+    pub key: String,  // 流程定义key，必须全局唯一
     pub seq: Vec<Seq<'a>>,
 }
 
 impl<'a> ProcDef<'a> {
     pub fn new(name: String, key: String) -> Self {
-        return ProcDef {
-            name: name,
-            key: key,
+        ProcDef {
+            name,
+            key,
             seq: Vec::new(),
-        };
+        }
     }
 
     pub fn set_seq(&mut self, seq: Vec<Seq<'a>>) {
@@ -21,14 +21,8 @@ impl<'a> ProcDef<'a> {
     }
 
     pub fn find_next(&self, target: &'a Task) -> &'a Task {
-        let row = self
-            .seq
-            .iter()
-            .find(|t| {
-                return t.source.id == target.id;
-            })
-            .unwrap();
-        return row.target;
+        let row = self.seq.iter().find(|t| t.source.id == target.id).unwrap();
+        row.target
     }
 }
 
@@ -39,9 +33,6 @@ pub struct Seq<'a> {
 
 impl<'a> Seq<'a> {
     pub fn new(source: &'a Task, target: &'a Task) -> Self {
-        return Seq {
-            source: source,
-            target: target,
-        };
+        Seq { source, target }
     }
 }
