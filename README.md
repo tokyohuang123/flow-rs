@@ -4,7 +4,10 @@
 
 ## 设计
 
-参考 [bpe](https://github.com/synrc/bpe) 的实现
+参考了：
+
+- [bpe](https://github.com/synrc/bpe)
+- [http://di.ulb.ac.be/ssd/ggeeraer/Tutorial-Perti-Nets-Geeraerts.pdf](http://di.ulb.ac.be/ssd/ggeeraer/Tutorial-Perti-Nets-Geeraerts.pdf)
 
 一些结构：
 
