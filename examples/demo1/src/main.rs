@@ -34,7 +34,7 @@ fn main() {
     );
 
     let proc_ins = ProcIns::new(proc_def);
-    proc_ins.run();
+    proc_ins.run(); // TODO: 支持异步操作，主线程处理流程，工作线程处理输入
 }
 
 fn create_task1() -> Task {

@@ -1,0 +1,8 @@
+[package]
+name = "flow-rest"
+version = "0.1.0"
+authors = ["Joey <joey.xf@gmail.com>"]
+
+[dependencies]
+flow-engine = { path = "../flow-engine" }
+hyper = "0.12"

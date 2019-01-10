@@ -2,5 +2,6 @@
 
 members = [
     "flow-engine",
+    "flow-rest",
     "examples/demo1",
 ]
