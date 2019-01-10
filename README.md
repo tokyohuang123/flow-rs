@@ -15,6 +15,8 @@
 2. 流程实例 proc_instance
 3. 任务 task，任务包含多种类型
 
+ProcDef 是流程定义结构，包含了 Tasks和Transitions
+
 ## 测试
 
 目前 demo 中有个很简单的例子，定义了 3 个简单的任务，编排在 process definition 中，实例化 process instance 后运行流程实例就能自动按顺序执行任务

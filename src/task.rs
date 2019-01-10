@@ -1,5 +1,5 @@
 use crate::form::Form;
-use uuid::Uuid;
+// use uuid::Uuid;
 
 type Callback = fn(Option<Form>);
 
@@ -13,7 +13,7 @@ pub enum TaskKind {
 }
 
 pub enum TaskState {
-    NOTRULL,
+    NOTRUN,
     RUNNING,
     COMPLETED,
 }
@@ -30,17 +30,18 @@ pub struct Task {
 impl Task {
     pub fn new(name: String, kind: TaskKind, cb: Option<Callback>, form: Option<Form>) -> Self {
         Task {
-            id: Uuid::new_v4().to_string(),
+            id: String::from(""),
             name,
             kind,
             runner: cb,
             form,
-            state: TaskState::NOTRULL,
+            state: TaskState::NOTRUN,
         }
     }
 
     pub fn run(&self, input: Option<Form>) {
         if let Some(f) = self.runner {
+            // self.id = Uuid::new_v4().to_string(); // 运行时才有任务id
             f(input);
         }
     }
