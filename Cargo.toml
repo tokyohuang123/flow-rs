@@ -1,7 +1,6 @@
-[package]
-name = "flow-rs"
-version = "0.1.0"
-authors = ["Joey <joey.xf@gmail.com>"]
+[workspace]
 
-[dependencies]
-uuid = { version = "0.7", features = ["v4"] }
+members = [
+    "flow-engine",
+    "examples/demo1",
+]

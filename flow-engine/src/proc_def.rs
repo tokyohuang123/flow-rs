@@ -33,17 +33,17 @@ impl ProcDef {
         self.transitions.push(trans);
     }
 
-    pub fn get_next_task(&self, cur_task_name: &str) -> Option<&Task> {
+    pub fn get_next_task(&self, cur_task_name: &str) -> &Task {
         for trans in &self.transitions {
             if trans.from == cur_task_name {
                 // 返回对应的task指针
                 for task in &self.tasks {
                     if task.name == trans.to {
-                        return Some(task);
+                        return task;
                     }
                 }
             }
         }
-        Some(&self.end_task) // 如果没有下一个任务，默认就终止流程
+        &self.end_task // 如果没有下一个任务，默认就终止流程
     }
 }

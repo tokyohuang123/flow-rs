@@ -1,10 +1,11 @@
-extern crate flow_rs;
+extern crate flow_engine;
 
-use flow_rs::form::Form;
-use flow_rs::proc_def::ProcDef;
-use flow_rs::proc_ins::ProcIns;
-use flow_rs::task::{Task, TaskKind};
+use flow_engine::form::Form;
+use flow_engine::proc_def::ProcDef;
+use flow_engine::proc_ins::ProcIns;
+use flow_engine::task::{Task, TaskKind};
 
+// 测试简单的，线性流程
 fn main() {
     let task1 = create_task1();
     let task2 = create_task2();

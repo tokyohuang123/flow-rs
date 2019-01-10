@@ -9,13 +9,9 @@
 - [bpe](https://github.com/synrc/bpe)
 - [http://di.ulb.ac.be/ssd/ggeeraer/Tutorial-Perti-Nets-Geeraerts.pdf](http://di.ulb.ac.be/ssd/ggeeraer/Tutorial-Perti-Nets-Geeraerts.pdf)
 
-一些结构：
+整体结构设计：
 
-1. 流程定义 proc_definition
-2. 流程实例 proc_instance
-3. 任务 task，任务包含多种类型
-
-ProcDef 是流程定义结构，包含了 Tasks和Transitions
+服务端运行流程实例，客户端为各任务提交表单数据，服务端收到请求后继续执行原任务
 
 ## 测试
 
