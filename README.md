@@ -14,6 +14,14 @@ flow-rest:
 
 对外暴露的 rest api，通过此 api 可以在服务器上启动流程，运行任务
 
+对外提供的api包括：
+
+deployProcess
+startProcess
+cancelProcess
+amendTask
+completeTask
+
 ## 测试
 
 ```sh

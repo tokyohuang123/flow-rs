@@ -1,9 +1,8 @@
 extern crate flow_engine;
 
 use flow_engine::form::Form;
-use flow_engine::proc_def::ProcDef;
-use flow_engine::proc_ins::ProcIns;
-use flow_engine::task::{Task, TaskKind};
+use flow_engine::process::{ProcDef, ProcIns};
+use flow_engine::task::{TaskDef, TaskKind};
 
 // 测试简单的，线性流程
 fn main() {
@@ -37,8 +36,8 @@ fn main() {
     proc_ins.run(); // TODO: 支持异步操作，主线程处理流程，工作线程处理输入
 }
 
-fn create_task1() -> Task {
-    return Task::new(
+fn create_task1() -> TaskDef {
+    return TaskDef::new(
         "任务1".to_string(),
         TaskKind::UserTask,
         Some(run_task1),
@@ -56,8 +55,8 @@ fn run_task1(input: Option<Form>) {
     }
 }
 
-fn create_task2() -> Task {
-    return Task::new(
+fn create_task2() -> TaskDef {
+    return TaskDef::new(
         "任务2".to_string(),
         TaskKind::UserTask,
         Some(run_task2),
